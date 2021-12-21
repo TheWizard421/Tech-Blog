@@ -5,15 +5,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Just Tech Blog</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../public/stylesheet/style.css">
 </head>
 
 <body>
   <div class="wrapper">
     <header>
-      <h1>
-        <a href="/">Just Tech Blog</a>
-      </h1>
+            
+      <nav class="navbar navbar-dark bg-dark" style="padding:0 20px">
+        <a href="/" style="text-decoration: none;">
+          <span>
+            <h1>
+              Just Tech Blog
+            </h1>
+          </span>
+        </a>
+        {{#if loggedIn}}
+        <a href="/dashboard" style="text-decoration: none;">dashboard</a>
+        <button id="logout" class="btn-no-style">logout</button>
+        {{else}}
+        <a href="/login" style="text-decoration: none;">login</a>
+        {{/if}}
+      </nav>
+      
     </header>
     <main>
       {{{ body }}}
@@ -22,7 +37,9 @@
       Thanks for visiting!
     </footer>
   </div>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="../../public/js/index.js"></script>
+  <script src="../../public/js/logout.js"></script>
 </body>
 
 </html>
